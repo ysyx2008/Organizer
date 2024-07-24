@@ -84,7 +84,7 @@
             this.tbxSource.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSource.Name = "tbxSource";
             this.tbxSource.ReadOnly = true;
-            this.tbxSource.Size = new System.Drawing.Size(757, 45);
+            this.tbxSource.Size = new System.Drawing.Size(802, 45);
             this.tbxSource.TabIndex = 16;
             this.tbxSource.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbxSource_DragDrop);
             this.tbxSource.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbxSource_DragEnter);
@@ -93,10 +93,10 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(975, 163);
+            this.button1.Location = new System.Drawing.Point(1020, 163);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 52);
+            this.button1.Size = new System.Drawing.Size(132, 52);
             this.button1.TabIndex = 15;
             this.button1.Text = "选择";
             this.button1.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             this.label3.Location = new System.Drawing.Point(47, 56);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1024, 93);
+            this.label3.Size = new System.Drawing.Size(1069, 93);
             this.label3.TabIndex = 19;
             this.label3.Text = "    精确比对源文件夹中的所有文件，所有重复的文件只在源文件夹中保留一份，其他均转移到回收文件夹。\r\n";
             // 
@@ -118,12 +118,12 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(975, 507);
+            this.button3.Location = new System.Drawing.Point(948, 507);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 50);
+            this.button3.Size = new System.Drawing.Size(204, 95);
             this.button3.TabIndex = 20;
-            this.button3.Text = "开始";
+            this.button3.Text = "启动去重";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -154,7 +154,7 @@
             this.progressBar.Location = new System.Drawing.Point(70, 662);
             this.progressBar.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(1001, 29);
+            this.progressBar.Size = new System.Drawing.Size(1082, 29);
             this.progressBar.TabIndex = 21;
             // 
             // label2
@@ -178,7 +178,7 @@
             this.tbxDestination.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDestination.Name = "tbxDestination";
             this.tbxDestination.ReadOnly = true;
-            this.tbxDestination.Size = new System.Drawing.Size(757, 45);
+            this.tbxDestination.Size = new System.Drawing.Size(802, 45);
             this.tbxDestination.TabIndex = 25;
             this.toolTip.SetToolTip(this.tbxDestination, "找出来的重复文件将被转移到这里");
             this.tbxDestination.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbxDestination_DragDrop);
@@ -188,10 +188,10 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(975, 270);
+            this.button2.Location = new System.Drawing.Point(1020, 270);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 50);
+            this.button2.Size = new System.Drawing.Size(132, 50);
             this.button2.TabIndex = 24;
             this.button2.Text = "选择";
             this.button2.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(763, 92);
+            this.groupBox1.Size = new System.Drawing.Size(808, 92);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "文件大小相同但内容不一致的图片？";
@@ -231,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 1102);
+            this.ClientSize = new System.Drawing.Size(1189, 1102);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxDestination);

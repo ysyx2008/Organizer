@@ -89,7 +89,7 @@
             this.button1.Location = new System.Drawing.Point(972, 148);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 52);
+            this.button1.Size = new System.Drawing.Size(144, 52);
             this.button1.TabIndex = 0;
             this.button1.Text = "选择";
             this.button1.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.button2.Location = new System.Drawing.Point(972, 272);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 50);
+            this.button2.Size = new System.Drawing.Size(144, 50);
             this.button2.TabIndex = 3;
             this.button2.Text = "选择";
             this.button2.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(862, 838);
+            this.button3.Location = new System.Drawing.Point(910, 835);
             this.button3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(206, 95);
@@ -210,7 +210,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox1.Size = new System.Drawing.Size(860, 92);
+            this.groupBox1.Size = new System.Drawing.Size(908, 92);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "整理文件的方法？";
@@ -220,7 +220,7 @@
             this.progressBar.Location = new System.Drawing.Point(48, 1024);
             this.progressBar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(1020, 28);
+            this.progressBar.Size = new System.Drawing.Size(1068, 25);
             this.progressBar.TabIndex = 10;
             // 
             // lbProgress
@@ -243,7 +243,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox2.Size = new System.Drawing.Size(860, 92);
+            this.groupBox2.Size = new System.Drawing.Size(908, 92);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文件没有拍摄时间时？";
@@ -295,7 +295,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox3.Size = new System.Drawing.Size(860, 90);
+            this.groupBox3.Size = new System.Drawing.Size(908, 90);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "目标文件夹存在同名文件时？";
@@ -392,7 +392,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox4.Size = new System.Drawing.Size(860, 92);
+            this.groupBox4.Size = new System.Drawing.Size(908, 92);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "整理后的目录结构（以2020年3月1日为例）";
@@ -402,7 +402,7 @@
             this.btnChangeStyle.Location = new System.Drawing.Point(322, 38);
             this.btnChangeStyle.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnChangeStyle.Name = "btnChangeStyle";
-            this.btnChangeStyle.Size = new System.Drawing.Size(96, 47);
+            this.btnChangeStyle.Size = new System.Drawing.Size(151, 47);
             this.btnChangeStyle.TabIndex = 1;
             this.btnChangeStyle.Text = "更改";
             this.btnChangeStyle.UseVisualStyleBackColor = true;
@@ -535,7 +535,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 1094);
+            this.ClientSize = new System.Drawing.Size(1190, 1096);
             this.Controls.Add(this.tbxIgnoreKeyWord);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nUDIgnoreFileSize);
