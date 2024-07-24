@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeduplicate));
             this.cbxIncludeSubDirectory = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxSource = new System.Windows.Forms.TextBox();
@@ -245,9 +246,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxSource);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDeduplicate";
-            this.ShowIcon = false;
             this.Text = "精确去重";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
