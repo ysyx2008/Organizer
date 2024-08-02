@@ -57,6 +57,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nUDIgnoreFileSize = new System.Windows.Forms.NumericUpDown();
             this.tbxIgnoreKeyWord = new System.Windows.Forms.TextBox();
+            this.cbxOrganizByDeviceType = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnChangeStyle = new System.Windows.Forms.Button();
             this.lbStyle = new System.Windows.Forms.Label();
@@ -354,7 +355,7 @@
             // 
             this.lbCurrentFile.AutoSize = true;
             this.lbCurrentFile.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCurrentFile.Location = new System.Drawing.Point(63, 1009);
+            this.lbCurrentFile.Location = new System.Drawing.Point(63, 1065);
             this.lbCurrentFile.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbCurrentFile.Name = "lbCurrentFile";
             this.lbCurrentFile.Size = new System.Drawing.Size(0, 30);
@@ -383,8 +384,21 @@
             this.tbxIgnoreKeyWord.TabIndex = 23;
             this.toolTip.SetToolTip(this.tbxIgnoreKeyWord, "如果文件名（包括后缀名）中含有这些内容，则文件会被跳过，不做整理。");
             // 
+            // cbxOrganizByDeviceType
+            // 
+            this.cbxOrganizByDeviceType.AutoSize = true;
+            this.cbxOrganizByDeviceType.Font = new System.Drawing.Font("宋体", 10F);
+            this.cbxOrganizByDeviceType.Location = new System.Drawing.Point(592, 45);
+            this.cbxOrganizByDeviceType.Name = "cbxOrganizByDeviceType";
+            this.cbxOrganizByDeviceType.Size = new System.Drawing.Size(285, 34);
+            this.cbxOrganizByDeviceType.TabIndex = 24;
+            this.cbxOrganizByDeviceType.Text = "不同设备单独存放";
+            this.toolTip.SetToolTip(this.cbxOrganizByDeviceType, "勾选后将会读取Exif中的设备型号，并将设备型号作为第一级目录，然后再按日期建立文件夹结构。");
+            this.cbxOrganizByDeviceType.UseVisualStyleBackColor = true;
+            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cbxOrganizByDeviceType);
             this.groupBox4.Controls.Add(this.btnChangeStyle);
             this.groupBox4.Controls.Add(this.lbStyle);
             this.groupBox4.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -535,7 +549,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 1096);
+            this.ClientSize = new System.Drawing.Size(1190, 1181);
             this.Controls.Add(this.tbxIgnoreKeyWord);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nUDIgnoreFileSize);
@@ -626,6 +640,7 @@
         private System.Windows.Forms.NumericUpDown nUDIgnoreFileSize;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbxIgnoreKeyWord;
+        private System.Windows.Forms.CheckBox cbxOrganizByDeviceType;
     }
 }
 

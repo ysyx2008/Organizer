@@ -91,6 +91,7 @@ namespace 照片整理专家
             nUDIgnoreFileSize.Enabled = false;
             progressBar.Maximum = 0;
             progressBar.Value = 0;
+            cbxOrganizByDeviceType.Enabled = false;
             #endregion
 
             try
@@ -231,33 +232,39 @@ namespace 照片整理专家
                     }
 
                     #region 处理文件路径
-                    string destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"));
+                    string destPath = destRoot;
+                    if (cbxOrganizByDeviceType.Checked && exif.ContainsKey("设备型号"))
+                    {
+                        destPath = Path.Combine(destRoot, exif["设备型号"]);
+                    }
+
+                    //destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"));
 
                     switch (lbStyle.Text)
                     {
                         case @"\2020\03\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"));
                             break;
                         case @"\2020\3\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.Month.ToString());
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyy"), capturedTime.Month.ToString());
                             break;
                         case @"\202003\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyyMM"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyyMM"));
                             break;
                         case @"\2020\03\01\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"), capturedTime.ToString("dd"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"), capturedTime.ToString("dd"));
                             break;
                         case @"\2020\0301\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("MMdd"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyy"), capturedTime.ToString("MMdd"));
                             break;
                         case @"\20200301\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyyMMdd"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyyMMdd"));
                             break;
                         case @"\2020\202003\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("yyyyMM"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyy"), capturedTime.ToString("yyyyMM"));
                             break;
                         case @"\2020\":
-                            destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"));
+                            destPath = Path.Combine(destPath, capturedTime.ToString("yyyy"));
                             break;
                         default:
                             throw new Exception("没有设置正确的路径格式");
@@ -380,6 +387,7 @@ namespace 照片整理专家
             nUDIgnoreFileSize.Enabled = true;
             onProcess = false;
             abortProcess = false;
+            cbxOrganizByDeviceType.Enabled = true;
         }
 
         public static bool IsExactlySameFile(string filePath1, string filePath2)

@@ -62,8 +62,11 @@ namespace 照片整理专家
                 case "Exif Version":
                     chineseCaption = "Exif版本";
                     break;
+                case "Make":
+                    chineseCaption = "设备制造商";
+                    break;
                 case "Model":
-                    chineseCaption = "相机型号";
+                    chineseCaption = "设备型号";
                     break;
                 case "Lens Model":
                     chineseCaption = "镜头类型";
