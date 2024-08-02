@@ -233,9 +233,16 @@ namespace 照片整理专家
 
                     #region 处理文件路径
                     string destPath = destRoot;
-                    if (cbxOrganizByDeviceType.Checked && exif.ContainsKey("设备型号"))
+                    if (cbxOrganizByDeviceType.Checked)
                     {
-                        destPath = Path.Combine(destRoot, exif["设备型号"]);
+                        if (exif.ContainsKey("设备型号") && Helper.IsValidFileName(exif["设备型号"]))
+                        {
+                            destPath = Path.Combine(destRoot, exif["设备型号"]);
+                        }
+                        else
+                        {
+                            destPath = Path.Combine(destRoot, "无设备型号");
+                        }
                     }
 
                     //destPath = Path.Combine(destRoot, capturedTime.ToString("yyyy"), capturedTime.ToString("MM"));

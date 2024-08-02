@@ -599,5 +599,40 @@ namespace 照片整理专家
 
             return false;
         }
+
+        /// <summary>
+        /// 检查文件名是否合法
+        /// </summary>
+        /// <param name="name">文件名</param>
+        /// <returns></returns>
+        public static bool IsValidFileName(string name)
+        {
+            // 检查是否为空或过长
+            if (string.IsNullOrWhiteSpace(name) || name.Length > 255)
+            {
+                return false;
+            }
+
+            // 检查是否包含非法字符
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                if (name.Contains(c))
+                {
+                    return false;
+                }
+            }
+
+            // 检查是否是Windows保留的文件名
+            string[] reservedNames = new string[] { "CON", "PRN", "AUX", "NUL", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9" };
+            foreach (string reserved in reservedNames)
+            {
+                if (name.Equals(reserved, StringComparison.OrdinalIgnoreCase))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
