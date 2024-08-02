@@ -7,6 +7,9 @@ using System.IO;
 
 namespace 照片整理专家
 {
+    /// <summary>
+    /// Todo: 使用面向对象的方法重写程序
+    /// </summary>
     class Organizer
     {
         /// <summary>
