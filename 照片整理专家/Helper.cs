@@ -75,11 +75,12 @@ namespace 照片整理专家
                     chineseCaption = "文件大小";
                     break;
                 case "Date/Time Original":
-                case "Created":
                     chineseCaption = "拍摄时间";
                     break;
+                case "Created":
+                    chineseCaption = "创建时间";
+                    break;
                 case "File Modified Date":
-                case "Modified":
                     chineseCaption = "修改时间";
                     break;
                 case "Image Height":

@@ -181,13 +181,23 @@ namespace 照片整理专家
                     try
                     {
                         exif = Helper.GetExifByMe(file.FullName);
-                        if (exif.ContainsKey("拍摄时间"))
+                        if (exif.ContainsKey("拍摄时间") || exif.ContainsKey("录制时间"))
                         {
-                            if (!DateTime.TryParseExact(exif["拍摄时间"], "yyyy:MM:dd HH:mm:ss", CultureInfo.CurrentCulture, DateTimeStyles.None, out capturedTime))
+                            string datetime = "";
+                            if (exif.ContainsKey("拍摄时间"))
                             {
-                                if (!DateTime.TryParseExact(exif["拍摄时间"], "ddd MMM dd HH:mm:ss yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out capturedTime))
+                                datetime = exif["拍摄时间"];
+                            }
+                            else if (exif.ContainsKey("创建时间"))
+                            {
+                                datetime = exif["创建时间"];
+                            }
+
+                            if (!DateTime.TryParseExact(datetime, "yyyy:MM:dd HH:mm:ss", CultureInfo.CurrentCulture, DateTimeStyles.None, out capturedTime))
+                            {
+                                if (!DateTime.TryParseExact(datetime, "ddd MMM dd HH:mm:ss yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out capturedTime))
                                 {
-                                    if(!DateTime.TryParse(exif["拍摄时间"], out capturedTime))
+                                    if(!DateTime.TryParse(datetime, out capturedTime))
                                     {
                                         logger.Info("拍摄时间解析异常：" + exif["拍摄时间"]);
                                     }

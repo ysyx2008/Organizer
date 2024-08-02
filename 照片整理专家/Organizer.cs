@@ -12,11 +12,7 @@ namespace 照片整理专家
         /// <summary>
         /// 整理方法，可选择移动或复制目标文件夹
         /// </summary>
-        public enum Method
-        {
-            Move=1,
-            Copy=2
-        }
+        public enum Method{ Move, Copy }
 
         /// <summary>
         /// 源文件夹
