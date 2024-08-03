@@ -351,8 +351,6 @@ namespace 照片整理专家
                 MessageBox.Show("恭喜，已经完成整理了！", "完成");
                 logger.Info("恭喜，已经完成整理了！");
 
-#if DEBUG
-#else
                 if (processed > 1000)
                 {
                     if(MessageBox.Show("哇，这次一口气整理了" + processed.ToString() + "个文件！！！\r\n\r\n那么，要不要给作者打个赏呢？","不要脸的求赞",MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -360,7 +358,6 @@ namespace 照片整理专家
                         frmFramework.支持作者ToolStripMenuItem.PerformClick();
                     }
                 }
-#endif
 
                 #endregion
             }

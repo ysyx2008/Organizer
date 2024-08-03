@@ -63,12 +63,7 @@ namespace 照片整理专家
 
             tsslVersion.Text = "版本号：" + Application.ProductVersion;
 
-
-#if DEBUG
-            支持作者ToolStripMenuItem.Visible = false;
-#else
             支持作者ToolStripMenuItem.Visible = true;
-#endif
         }
 
         /// <summary>
