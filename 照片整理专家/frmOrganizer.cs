@@ -206,6 +206,10 @@ namespace 照片整理专家
                             }
                         }
                     }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        logger.Info("读取Exif失败：" + ex.Message + "跳过此文件");
+                    }
                     catch (Exception ex)
                     {
                         // 无法判断文件类型时
@@ -330,7 +334,7 @@ namespace 照片整理专家
                             {
                                 file.MoveTo(destination);
                             }
-                            catch (System.UnauthorizedAccessException ex)
+                            catch (UnauthorizedAccessException ex)
                             {
                                 logger.Info("移动文件失败：" + ex.Message + "跳过此文件");
                             }
@@ -343,7 +347,7 @@ namespace 照片整理专家
                             {
                                 file.CopyTo(destination);
                             }
-                            catch (System.UnauthorizedAccessException ex)
+                            catch (UnauthorizedAccessException ex)
                             {
                                 logger.Info("复制文件失败：" + ex.Message + "跳过此文件");
                             }
