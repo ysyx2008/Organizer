@@ -291,18 +291,26 @@ namespace 照片整理专家
                         sameNameFileCount++;
                         if (rbAutoRename.Checked)
                         {
-                            FileInfo destFile = new FileInfo(destination);
-                            if (file.Length == destFile.Length && IsExactlySameFile(file.FullName, destination))
+                            try
                             {
-                                // 跳过相同文件
-                                logger.Info(file.FullName + " 与 " + destination + " 同名并且完全一致，跳过");
-                                processed++;
-                                ignoreThisFile = true;
+                                FileInfo destFile = new FileInfo(destination);
+                                if (file.Length == destFile.Length && IsExactlySameFile(file.FullName, destination))
+                                {
+                                    // 跳过相同文件
+                                    logger.Info(file.FullName + " 与 " + destination + " 同名并且完全一致，跳过");
+                                    processed++;
+                                    ignoreThisFile = true;
+                                }
+                                else
+                                {
+                                    logger.Info(file.FullName + " 与 " + destination + " 同名但内容并不一致，重命名");
+                                    destination = Helper.getUnionName(destPath, file);
+                                }
                             }
-                            else
+                            catch (UnauthorizedAccessException ex)
                             {
-                                logger.Info(file.FullName + " 与 " + destination + " 同名但内容并不一致，重命名");
-                                destination = Helper.getUnionName(destPath, file);
+                                logger.Info("没有权限访问文件：" + ex.Message);
+                                ignoreThisFile = true;
                             }
                         }
                         else if (rbIgnoreSameNameFile.Checked)
