@@ -326,13 +326,27 @@ namespace 照片整理专家
                         {
                             // 移动文件
                             logger.Info("移动" + file.FullName + "到" + destination);
-                            file.MoveTo(destination);
+                            try
+                            {
+                                file.MoveTo(destination);
+                            }
+                            catch (System.UnauthorizedAccessException ex)
+                            {
+                                logger.Info("移动文件失败：" + ex.Message + "跳过此文件");
+                            }
                         }
                         else if (rbCopy.Checked)
                         {
                             // 复制文件
                             logger.Info("复制" + file.FullName + "到" + destination);
-                            file.CopyTo(destination);
+                            try
+                            {
+                                file.CopyTo(destination);
+                            }
+                            catch (System.UnauthorizedAccessException ex)
+                            {
+                                logger.Info("复制文件失败：" + ex.Message + "跳过此文件");
+                            }
                         }
 
                         processed++;
