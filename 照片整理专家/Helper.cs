@@ -12,7 +12,7 @@ using System.Text;
 
 namespace 照片整理专家
 {
-    class Helper
+    public class Helper
     {
 
         #region 通过metadata-extractor获取照片参数
