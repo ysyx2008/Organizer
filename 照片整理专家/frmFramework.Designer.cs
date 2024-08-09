@@ -124,10 +124,12 @@
             this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.AutoScroll = true;
+            this.panel.AutoSize = true;
             this.panel.Location = new System.Drawing.Point(0, 63);
             this.panel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1218, 1135);
+            this.panel.Size = new System.Drawing.Size(1218, 1261);
             this.panel.TabIndex = 1;
             // 
             // statusStrip1
@@ -136,7 +138,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslVersion,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1209);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1335);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 19, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1218, 52);
@@ -162,7 +164,8 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1218, 1261);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1218, 1387);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip);

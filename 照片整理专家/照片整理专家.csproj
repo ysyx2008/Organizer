@@ -30,7 +30,7 @@
     <PublisherName>旗鱼</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -190,9 +190,9 @@
     <Content Include="Resources\Defraggler_128px_1179991_easyicon.net.ico" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.8 %28x86 和 x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.8.1 %28x86 和 x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

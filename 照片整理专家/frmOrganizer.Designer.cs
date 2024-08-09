@@ -390,9 +390,9 @@
             this.cbxOrganizByDeviceType.Font = new System.Drawing.Font("宋体", 10F);
             this.cbxOrganizByDeviceType.Location = new System.Drawing.Point(592, 45);
             this.cbxOrganizByDeviceType.Name = "cbxOrganizByDeviceType";
-            this.cbxOrganizByDeviceType.Size = new System.Drawing.Size(285, 34);
+            this.cbxOrganizByDeviceType.Size = new System.Drawing.Size(255, 34);
             this.cbxOrganizByDeviceType.TabIndex = 24;
-            this.cbxOrganizByDeviceType.Text = "不同设备单独存放";
+            this.cbxOrganizByDeviceType.Text = "按拍摄设备整理";
             this.toolTip.SetToolTip(this.cbxOrganizByDeviceType, "勾选后将会读取Exif中的设备型号，并将设备型号作为第一级目录，然后再按日期建立文件夹结构。");
             this.cbxOrganizByDeviceType.UseVisualStyleBackColor = true;
             // 

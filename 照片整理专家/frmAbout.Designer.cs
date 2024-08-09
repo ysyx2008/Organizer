@@ -39,21 +39,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.Image = global::照片整理专家.Properties.Resources.赞赏码;
-            this.pictureBox.Location = new System.Drawing.Point(35, 26);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Location = new System.Drawing.Point(82, 58);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(329, 350);
+            this.pictureBox.Size = new System.Drawing.Size(768, 788);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
             // button
             // 
-            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button.Location = new System.Drawing.Point(162, 408);
+            this.button.Location = new System.Drawing.Point(378, 918);
+            this.button.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(75, 23);
+            this.button.Size = new System.Drawing.Size(175, 88);
             this.button.TabIndex = 1;
             this.button.Text = "返回整理";
             this.button.UseVisualStyleBackColor = true;
@@ -61,12 +62,12 @@
             // 
             // frmAbout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 463);
+            this.ClientSize = new System.Drawing.Size(945, 1042);
             this.Controls.Add(this.button);
             this.Controls.Add(this.pictureBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "frmAbout";
             this.ShowIcon = false;
             this.Text = "赞赏码";
