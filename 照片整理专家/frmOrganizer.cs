@@ -208,13 +208,12 @@ namespace 照片整理专家
                     }
                     catch (UnauthorizedAccessException ex)
                     {
-                        logger.Info("读取Exif失败：" + ex.Message + "跳过此文件");
+                        logger.Info("读取Exif失败：" + ex.Message);
                     }
                     catch (Exception ex)
                     {
                         // 无法判断文件类型时
                         logger.Info(file.FullName + "读取Exif信息时发生异常：" + ex.Message);
-                        // isIgnore = true;
                     }
 
                     // 未能成功解析拍摄时间的处理
