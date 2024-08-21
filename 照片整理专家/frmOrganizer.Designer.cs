@@ -333,7 +333,7 @@
             this.cbxIncludeSubDirectory.Checked = true;
             this.cbxIncludeSubDirectory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxIncludeSubDirectory.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(227, 195);
+            this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(227, 203);
             this.cbxIncludeSubDirectory.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxIncludeSubDirectory.Name = "cbxIncludeSubDirectory";
             this.cbxIncludeSubDirectory.Size = new System.Drawing.Size(225, 34);
@@ -578,6 +578,8 @@
             this.Name = "frmOrganizer";
             this.Text = "照片整理";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmOrganizer_FormClosing);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmOrganizer_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.frmOrganizer_DragEnter);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

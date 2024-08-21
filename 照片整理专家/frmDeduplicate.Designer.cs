@@ -230,6 +230,7 @@
             // 
             // frmDeduplicate
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 1102);
@@ -250,6 +251,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDeduplicate";
             this.Text = "精确去重";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmDeduplicate_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.frmDeduplicate_DragEnter);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

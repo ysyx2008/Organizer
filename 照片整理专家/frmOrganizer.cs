@@ -486,5 +486,31 @@ namespace 照片整理专家
         {
             lbStyle.Text = e.ClickedItem.Text;
         }
+
+        private void frmOrganizer_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        private void frmOrganizer_DragDrop(object sender, DragEventArgs e)
+        {
+            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+
+            if (System.IO.Directory.Exists(path) == false)
+            {
+                MessageBox.Show(path + " 不是有效的文件夹！");
+                return;
+            }
+
+            if (tbxDestination.Text == tbxSource.Text)
+            {
+                tbxDestination.Text = path;
+            }
+
+            tbxSource.Text = path;
+        }
     }
 }
