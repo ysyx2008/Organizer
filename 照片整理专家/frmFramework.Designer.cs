@@ -176,6 +176,7 @@
             this.Name = "frmFramework";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "照片整理专家";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFramework_FormClosing);
             this.Load += new System.EventHandler(this.Framework_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

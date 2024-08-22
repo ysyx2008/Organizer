@@ -578,6 +578,7 @@
             this.Name = "frmOrganizer";
             this.Text = "照片整理";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmOrganizer_FormClosing);
+            this.Load += new System.EventHandler(this.FrmOrganizer_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmOrganizer_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.frmOrganizer_DragEnter);
             this.groupBox1.ResumeLayout(false);

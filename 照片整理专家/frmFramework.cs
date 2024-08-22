@@ -124,5 +124,13 @@ namespace 照片整理专家
             frmAbout.Show();
             Text = defaultTitle + " - " + frmAbout.Text;
         }
+
+        private void frmFramework_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (var form in forms)
+            {
+                form.Value.Close();
+            }
+        }
     }
 }

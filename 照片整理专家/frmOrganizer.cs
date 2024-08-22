@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using NLog;
+using 照片整理专家.Properties;
 
 namespace 照片整理专家
 {
@@ -473,11 +474,6 @@ namespace 照片整理专家
             }
         }
 
-        private void FrmOrganizer_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            abortProcess = true;
-        }
-
         private void BtnChangeStyle_Click(object sender, EventArgs e)
         {
             // 显示目录结构样式列表
@@ -513,6 +509,20 @@ namespace 照片整理专家
             }
 
             tbxSource.Text = path;
+        }
+
+        private void FrmOrganizer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            abortProcess = true;
+            Settings.Default.源文件夹 = tbxSource.Text;
+            Settings.Default.目标文件夹 = tbxDestination.Text;
+            Settings.Default.Save();
+        }
+
+        private void FrmOrganizer_Load(object sender, EventArgs e)
+        {
+            tbxSource.Text = Settings.Default.源文件夹;
+            tbxDestination.Text = Settings.Default.目标文件夹;
         }
     }
 }
