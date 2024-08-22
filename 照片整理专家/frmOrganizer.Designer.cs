@@ -312,7 +312,8 @@
             this.rbAutoRename.TabIndex = 9;
             this.rbAutoRename.TabStop = true;
             this.rbAutoRename.Text = "智能处理（推荐）";
-            this.toolTip.SetToolTip(this.rbAutoRename, "精确比较文件内容，如果相同就覆盖，不相同就自动重命名后保存。\r\n使用Hash算法，速度稍慢。推荐选择。");
+            this.toolTip.SetToolTip(this.rbAutoRename, "使用MD5算法精确比较文件内容，不相同就自动重命名后保存，相同则采取以下操作：\r\n    “复制”方法整理时：跳过源文件夹中的文件。\r\n    “移动”方法整理时" +
+        "：转移到目标文件夹下的“重复文件回收站”。\r\n推荐选择。");
             this.rbAutoRename.UseVisualStyleBackColor = true;
             // 
             // rbIgnoreSameNameFile

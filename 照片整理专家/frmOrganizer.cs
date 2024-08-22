@@ -118,12 +118,24 @@ namespace 照片整理专家
                     throw new Exception("目标文件夹不存在。");
                 }
 
+                string destRoot = tbxDestination.Text;
+                string recycleDirectoryName = "重复文件回收站";
 
                 if (System.IO.Directory.GetDirectories(tbxDestination.Text).Length > 0 || System.IO.Directory.GetFiles(tbxDestination.Text).Length > 0)
                 {
-                    if (MessageBox.Show("目标文件夹不是空的，确定要使用“" + tbxDestination.Text + "”这个目录吗？", "注意", MessageBoxButtons.YesNo) == DialogResult.No)
+                    if (rbMove.Checked && Directory.Exists(Path.Combine(destRoot, recycleDirectoryName)))
                     {
-                        throw new Exception("整理过程已经中止。");
+                        if (MessageBox.Show("目标文件夹已有“" + recycleDirectoryName + "”文件夹，其中的照片将不会被整理。\n\n确定要使用“" + tbxDestination.Text + "”这个目录吗？", "注意", MessageBoxButtons.YesNo) == DialogResult.No)
+                        {
+                            throw new Exception("整理过程已经中止。");
+                        }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("目标文件夹不是空的，确定要使用“" + tbxDestination.Text + "”这个目录吗？", "注意", MessageBoxButtons.YesNo) == DialogResult.No)
+                        {
+                            throw new Exception("整理过程已经中止。");
+                        }
                     }
                 }
 
@@ -152,8 +164,6 @@ namespace 照片整理专家
                 }
 
                 lbProgress.Text = "0/" + total.ToString() + "，已经整理 " + processed.ToString() + " 个有效文件，" + method + " " + sameNameFileCount.ToString() + " 个同名文件";
-
-                string destRoot = tbxDestination.Text;
 
                 for (int i = 0; i < total; i++)
                 {
@@ -289,35 +299,79 @@ namespace 照片整理专家
                     // 处理同名文件
                     if (File.Exists(destination))
                     {
-                        logger.Info("发现同名文件：" + destination);
-                        sameNameFileCount++;
-                        if (rbAutoRename.Checked)
+                        if(file.FullName == destination)
                         {
-                            try
+                            // 如果整理后的路径就是原始文件则直接跳过，不做处理
+                            logger.Info(file.FullName + "是已经整理过的文件，不需要重复整理。跳过");
+                            ignoreThisFile = true;
+                        }
+                        else
+                        {
+                            logger.Info("发现同名文件：" + destination);
+                            sameNameFileCount++;
+                            if (rbAutoRename.Checked)
                             {
-                                FileInfo destFile = new FileInfo(destination);
-                                if (file.Length == destFile.Length && IsExactlySameFile(file.FullName, destination))
+                                try
                                 {
-                                    // 跳过相同文件
-                                    logger.Info(file.FullName + " 与 " + destination + " 同名并且完全一致，跳过");
-                                    processed++;
+                                    FileInfo destFile = new FileInfo(destination);
+                                    if (file.Length == destFile.Length && IsExactlySameFile(file.FullName, destination))
+                                    {
+                                        if(rbCopy.Checked)
+                                        {
+                                            // 处理方法为复制时，跳过相同文件
+                                            logger.Info(file.FullName + " 与 " + destination + " 同名并且完全一致，跳过");
+                                        }
+                                        else if(rbMove.Checked)
+                                        {
+                                            // 处理方法为移动时，完全相同的文件转移到重复文件回收站
+                                            string recyclePath = Path.Combine(destRoot, recycleDirectoryName);
+                                            if (File.Exists(recyclePath) == false)
+                                            {
+                                                // 创建重复文件回收站文件夹
+                                                Directory.CreateDirectory(recyclePath);
+                                            }
+                                            if (file.FullName.Contains(recyclePath))
+                                            {
+                                                // 跳过回收站内的文件
+                                                logger.Info(file.FullName + "是已经整理过的文件，不需要重复整理。跳过");
+                                                ignoreThisFile = true;
+                                            }
+                                            else
+                                            {
+                                                // 创建新的路径
+                                                string newPath = Helper.getUnionName(recyclePath, file);
+                                                if (file.FullName == newPath)
+                                                {
+                                                    // 如果整理后的路径就是原始文件则直接跳过，不做处理
+                                                    logger.Info(file.FullName + "是已经整理过的文件，不需要重复整理。跳过");
+                                                    ignoreThisFile = true;
+                                                }
+                                                else
+                                                {
+                                                    file.MoveTo(newPath);
+                                                    logger.Info(file.FullName + " 与 " + destination + " 同名并且完全一致，移动到回收站：" + newPath);
+                                                }
+                                            }
+                                        }
+                                        processed++;
+                                        ignoreThisFile = true;
+                                    }
+                                    else
+                                    {
+                                        logger.Info(file.FullName + " 与 " + destination + " 同名但内容并不一致，重命名");
+                                        destination = Helper.getUnionName(destPath, file);
+                                    }
+                                }
+                                catch (UnauthorizedAccessException ex)
+                                {
+                                    logger.Info("没有权限访问文件：" + ex.Message);
                                     ignoreThisFile = true;
                                 }
-                                else
-                                {
-                                    logger.Info(file.FullName + " 与 " + destination + " 同名但内容并不一致，重命名");
-                                    destination = Helper.getUnionName(destPath, file);
-                                }
                             }
-                            catch (UnauthorizedAccessException ex)
+                            else if (rbIgnoreSameNameFile.Checked)
                             {
-                                logger.Info("没有权限访问文件：" + ex.Message);
                                 ignoreThisFile = true;
                             }
-                        }
-                        else if (rbIgnoreSameNameFile.Checked)
-                        {
-                            ignoreThisFile = true;
                         }
                     }
 
