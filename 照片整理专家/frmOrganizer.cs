@@ -182,17 +182,19 @@ namespace 照片整理专家
                     try
                     {
                         exif = Helper.GetExifByMe(file.FullName);
-                        if (exif.ContainsKey("拍摄时间") || exif.ContainsKey("录制时间"))
+
+                        string datetime = "";
+                        if (exif.ContainsKey("拍摄时间"))
                         {
-                            string datetime = "";
-                            if (exif.ContainsKey("拍摄时间"))
-                            {
-                                datetime = exif["拍摄时间"];
-                            }
-                            else if (exif.ContainsKey("创建时间"))
-                            {
-                                datetime = exif["创建时间"];
-                            }
+                            datetime = exif["拍摄时间"];
+                        }
+                        else if (exif.ContainsKey("创建时间"))
+                        {
+                            datetime = exif["创建时间"];
+                        }
+
+                        if (datetime != "")
+                        {
 
                             if (!DateTime.TryParseExact(datetime, "yyyy:MM:dd HH:mm:ss", CultureInfo.CurrentCulture, DateTimeStyles.None, out capturedTime))
                             {
@@ -200,7 +202,7 @@ namespace 照片整理专家
                                 {
                                     if(!DateTime.TryParse(datetime, out capturedTime))
                                     {
-                                        logger.Info("拍摄时间解析异常：" + exif["拍摄时间"]);
+                                        logger.Info("拍摄时间解析异常：" + datetime);
                                     }
                                 }
                             }
