@@ -334,7 +334,7 @@
             this.cbxIncludeSubDirectory.Checked = true;
             this.cbxIncludeSubDirectory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxIncludeSubDirectory.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(227, 203);
+            this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(227, 207);
             this.cbxIncludeSubDirectory.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbxIncludeSubDirectory.Name = "cbxIncludeSubDirectory";
             this.cbxIncludeSubDirectory.Size = new System.Drawing.Size(225, 34);
@@ -548,8 +548,9 @@
             // frmOrganizer
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1190, 1181);
             this.Controls.Add(this.tbxIgnoreKeyWord);
             this.Controls.Add(this.label6);

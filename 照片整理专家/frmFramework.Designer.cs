@@ -57,7 +57,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1218, 45);
+            this.menuStrip.Size = new System.Drawing.Size(1218, 54);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -67,7 +67,7 @@
             this.toolStripSeparator1,
             this.退出ToolStripMenuItem});
             this.tsmiFunction.Name = "tsmiFunction";
-            this.tsmiFunction.Size = new System.Drawing.Size(95, 41);
+            this.tsmiFunction.Size = new System.Drawing.Size(95, 50);
             this.tsmiFunction.Text = "功能";
             // 
             // toolStripSeparator1
@@ -89,7 +89,7 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem1});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(95, 41);
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(95, 50);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // 查看日志文件ToolStripMenuItem
@@ -114,7 +114,7 @@
             // 支持作者ToolStripMenuItem
             // 
             this.支持作者ToolStripMenuItem.Name = "支持作者ToolStripMenuItem";
-            this.支持作者ToolStripMenuItem.Size = new System.Drawing.Size(151, 41);
+            this.支持作者ToolStripMenuItem.Size = new System.Drawing.Size(151, 50);
             this.支持作者ToolStripMenuItem.Text = "打赏作者";
             this.支持作者ToolStripMenuItem.Click += new System.EventHandler(this.支持作者ToolStripMenuItem_Click);
             // 
@@ -162,8 +162,9 @@
             // frmFramework
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1218, 1387);
             this.Controls.Add(this.statusStrip1);
