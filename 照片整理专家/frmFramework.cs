@@ -47,7 +47,7 @@ namespace 照片整理专家
 
                 ToolStripMenuItem item = new ToolStripMenuItem(form.Key);
                 item.Click += Item_Click;
-                tsmiFunction.DropDownItems.Insert(i, item);
+                menuStrip.Items.Insert(i, item);
 
                 if (i == 0)
                 {
@@ -95,18 +95,6 @@ namespace 照片整理专家
             else
             {
                 MessageBox.Show("没有找到日志文件");
-            }
-        }
-
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Application.Exit();
-            }
-            catch (Exception)
-            {
-                Application.Exit();
             }
         }
 
