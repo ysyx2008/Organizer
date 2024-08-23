@@ -100,7 +100,14 @@ namespace 照片整理专家
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            }
+            catch (Exception)
+            {
+                Application.Exit();
+            }
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
