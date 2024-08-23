@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,25 +46,11 @@
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
-            // button
-            // 
-            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button.Location = new System.Drawing.Point(378, 918);
-            this.button.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(175, 88);
-            this.button.TabIndex = 1;
-            this.button.Text = "返回整理";
-            this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.button_Click);
-            // 
             // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 1042);
-            this.Controls.Add(this.button);
             this.Controls.Add(this.pictureBox);
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "frmAbout";
@@ -80,6 +65,5 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button button;
     }
 }
