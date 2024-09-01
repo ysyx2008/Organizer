@@ -94,7 +94,7 @@ namespace 照片整理专家
             }
             else
             {
-                MessageBox.Show("没有找到日志文件");
+                MessageBox.Show("现在还没有日志文件");
             }
         }
 
