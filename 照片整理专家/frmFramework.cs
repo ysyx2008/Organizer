@@ -61,9 +61,27 @@ namespace 照片整理专家
             frmAbout.FormBorderStyle = FormBorderStyle.None;
             frmAbout.Dock = DockStyle.Fill;
 
-            tsslVersion.Text = "版本号：" + Application.ProductVersion;
+            tsslVersion.Text = "版本号：" + GetVersion();
 
             支持作者ToolStripMenuItem.Visible = true;
+        }
+
+        /// <summary>
+        /// 返回程序版本号
+        /// </summary>
+        /// <returns></returns>
+        private string GetVersion()
+        {
+            try
+            {
+                // 返回ClickOnce版本号
+                return System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            }
+            catch (Exception)
+            {
+                // 返回程序版本号
+                return Application.ProductVersion;
+            }
         }
 
         /// <summary>
