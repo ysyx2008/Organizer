@@ -253,7 +253,7 @@ namespace 照片整理专家
                     {
                         if (exif.ContainsKey("设备型号") && Helper.IsValidFileName(exif["设备型号"]))
                         {
-                            destPath = Path.Combine(destRoot, exif["设备型号"]);
+                            destPath = Path.Combine(destRoot, exif["设备型号"].Trim());
                         }
                         else
                         {
