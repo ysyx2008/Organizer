@@ -24,13 +24,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://www.shiningsoft.com.cn/Organizer/</InstallUrl>
+    <InstallUrl>https://www.shiningsoft.com.cn/Organizer/</InstallUrl>
     <TargetCulture>zh</TargetCulture>
     <ProductName>照片整理专家</ProductName>
     <PublisherName>旗鱼</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>36</ApplicationRevision>
     <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -65,7 +65,7 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>FF25AF0970C63D1C6B76EDDBDB8813C60960E6AD</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E6E93A9E8FEDC98C64886A53DC0B7217354A3868</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -75,7 +75,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -85,10 +85,13 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>照片整理专家_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>照片整理专家密钥.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.digicert.com</ManifestTimestampUrl>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetadataExtractor, Version=2.8.1.0, Culture=neutral, PublicKeyToken=b66b5ccaf776c301, processorArchitecture=MSIL">
@@ -189,6 +192,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="照片整理专家_TemporaryKey.pfx" />
+    <None Include="照片整理专家密钥.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

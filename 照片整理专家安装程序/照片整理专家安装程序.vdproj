@@ -70,12 +70,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F483FE55EF2CC6487C96D97B982A255B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B15AC3AFBD3E45B380CC34BEEDEB39E9"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -107,6 +101,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_14B825CF7B9DCB9C0D7D4CC9938CE3AC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F483FE55EF2CC6487C96D97B982A255B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -231,7 +231,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:TRUE"
+            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -406,7 +406,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:TRUE"
+            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -467,7 +467,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:照片整理专家"
         "ProductCode" = "8:{23320445-2F00-4998-AB3A-910E3825211F}"
-        "PackageCode" = "8:{AEC16E6F-8731-4C59-AB4F-52D43F3B5690}"
+        "PackageCode" = "8:{57E34AE8-C5EB-4B06-A0E6-151B50543F40}"
         "UpgradeCode" = "8:{756840CC-DF14-4D8F-9051-42971065330F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -1002,7 +1002,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B15AC3AFBD3E45B380CC34BEEDEB39E9"
             {
-            "SourcePath" = "8:..\\照片整理专家\\obj\\Debug\\照片整理专家.exe"
+            "SourcePath" = "8:..\\照片整理专家\\obj\\Release\\照片整理专家.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A3BA9730D07749A3ABDCDBA4436723EC"
