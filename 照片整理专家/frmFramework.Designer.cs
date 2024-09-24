@@ -50,12 +50,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.帮助ToolStripMenuItem,
             this.支持作者ToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.menuStrip, "menuStrip");
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1217, 47);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "menuStrip1";
             // 
             // 帮助ToolStripMenuItem
             // 
@@ -64,48 +60,36 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem1});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(95, 43);
-            this.帮助ToolStripMenuItem.Text = "帮助";
+            resources.ApplyResources(this.帮助ToolStripMenuItem, "帮助ToolStripMenuItem");
             // 
             // 查看日志文件ToolStripMenuItem
             // 
             this.查看日志文件ToolStripMenuItem.Name = "查看日志文件ToolStripMenuItem";
-            this.查看日志文件ToolStripMenuItem.Size = new System.Drawing.Size(403, 48);
-            this.查看日志文件ToolStripMenuItem.Text = "查看日志文件";
+            resources.ApplyResources(this.查看日志文件ToolStripMenuItem, "查看日志文件ToolStripMenuItem");
             this.查看日志文件ToolStripMenuItem.Click += new System.EventHandler(this.查看日志文件ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(400, 6);
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(403, 48);
-            this.toolStripMenuItem1.Text = "分享给朋友";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // 支持作者ToolStripMenuItem
             // 
             this.支持作者ToolStripMenuItem.Name = "支持作者ToolStripMenuItem";
-            this.支持作者ToolStripMenuItem.Size = new System.Drawing.Size(151, 43);
-            this.支持作者ToolStripMenuItem.Text = "打赏作者";
+            resources.ApplyResources(this.支持作者ToolStripMenuItem, "支持作者ToolStripMenuItem");
             this.支持作者ToolStripMenuItem.Click += new System.EventHandler(this.支持作者ToolStripMenuItem_Click);
             // 
             // panel
             // 
             this.panel.AllowDrop = true;
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel.AutoScroll = true;
-            this.panel.AutoSize = true;
-            this.panel.Location = new System.Drawing.Point(0, 50);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            resources.ApplyResources(this.panel, "panel");
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1217, 1485);
-            this.panel.TabIndex = 1;
             // 
             // statusStrip1
             // 
@@ -113,42 +97,30 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslVersion,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1237);
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 18, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1217, 52);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
             // 
             // tsslVersion
             // 
             this.tsslVersion.Name = "tsslVersion";
-            this.tsslVersion.Size = new System.Drawing.Size(129, 41);
-            this.tsslVersion.Text = "版本号：";
-            this.tsslVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            resources.ApplyResources(this.tsslVersion, "tsslVersion");
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(379, 41);
-            this.toolStripStatusLabel1.Text = "问题反馈QQ群：1092957484";
+            resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
             // 
             // frmFramework
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1217, 1289);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmFramework";
-            this.Text = "照片整理专家";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFramework_FormClosing);
             this.Load += new System.EventHandler(this.Framework_Load);
             this.menuStrip.ResumeLayout(false);
