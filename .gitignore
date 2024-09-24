@@ -397,3 +397,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /照片整理专家/照片整理专家_TemporaryKey.pfx
+/MSIX打包/MSIX打包.wapproj
+/MSIX打包
