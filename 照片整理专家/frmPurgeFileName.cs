@@ -39,7 +39,6 @@ namespace 照片整理专家
         public frmPurgeFileName(frmFramework form)
         {
             frmFramework = form;
-            frmPurgeFileNamePreview = new frmPurgeFileNamePreview(form);
             InitializeComponent();
         }
 
@@ -119,11 +118,12 @@ namespace 照片整理专家
                         dtPreview.Rows.Add(purgedFileCount, fileList[i].DirectoryName, oldFileName, newFileName, "已更名");
                     }
 
-                    lbProgress.Text = (purgedFileCount).ToString() + "/" + total.ToString() + " 已经处理了 " + purgedFileCount.ToString() + " 个文件";
+                    lbProgress.Text = (i + 1).ToString() + "/" + total.ToString() + " 已经处理了 " + purgedFileCount.ToString() + " 个文件";
                     Application.DoEvents();
                 }
                 #endregion
 
+                frmPurgeFileNamePreview = new frmPurgeFileNamePreview(this.frmFramework);
                 frmPurgeFileNamePreview.Show();
                 frmPurgeFileNamePreview.Refresh(dtPreview);
                 logger.Info("已经处理了" + purgedFileCount.ToString() + "个文件！");
