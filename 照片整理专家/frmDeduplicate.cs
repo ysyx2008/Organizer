@@ -72,7 +72,15 @@ namespace 照片整理专家
 
                 if (System.IO.Directory.Exists(tbxDestination.Text) == false)
                 {
-                    throw new Exception("目标文件夹不存在。");
+                    try
+                    {
+                        Directory.CreateDirectory(tbxDestination.Text);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw new Exception("创建回收文件夹失败：" + ex.Message);
+                    }
                 }
 
 
@@ -186,7 +194,7 @@ namespace 照片整理专家
                             }
                         }
                     }
-
+                    
                     lbProgress.Text = i.ToString()+"/"+(total-2).ToString()+" 找到了 "+duplicationCount.ToString()+" 个重复文件，节约 " + Helper.HumanReadableFilesize((double)totalFileLength) + " 空间";
                     Application.DoEvents();
                 }
@@ -312,7 +320,7 @@ namespace 照片整理专家
 
             if (tbxDestination.Text == tbxSource.Text)
             {
-                tbxDestination.Text = path;
+                tbxDestination.Text = Path.Combine(path, "回收文件夹");
             }
 
             tbxSource.Text = path;

@@ -35,6 +35,7 @@ namespace 照片整理专家
             // 添加功能窗口列表
             forms.Add("照片整理", new frmOrganizer(this));
             forms.Add("精确去重", new frmDeduplicate(this));
+            forms.Add("清理文件名", new frmPurgeFileName(this));
 
 
             // 将功能窗口添加到菜单

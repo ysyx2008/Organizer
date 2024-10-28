@@ -88,7 +88,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(990, 137);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 52);
             this.button1.TabIndex = 0;
@@ -101,7 +101,7 @@
             this.tbxSource.AllowDrop = true;
             this.tbxSource.Font = new System.Drawing.Font("宋体", 11F);
             this.tbxSource.Location = new System.Drawing.Point(227, 144);
-            this.tbxSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxSource.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSource.Name = "tbxSource";
             this.tbxSource.ReadOnly = true;
             this.tbxSource.Size = new System.Drawing.Size(753, 45);
@@ -136,7 +136,7 @@
             this.tbxDestination.AllowDrop = true;
             this.tbxDestination.Font = new System.Drawing.Font("宋体", 11F);
             this.tbxDestination.Location = new System.Drawing.Point(227, 261);
-            this.tbxDestination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxDestination.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDestination.Name = "tbxDestination";
             this.tbxDestination.ReadOnly = true;
             this.tbxDestination.Size = new System.Drawing.Size(753, 45);
@@ -148,7 +148,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(990, 261);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 50);
             this.button2.TabIndex = 3;
@@ -160,7 +160,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.Location = new System.Drawing.Point(929, 826);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(207, 94);
             this.button3.TabIndex = 6;
@@ -180,7 +180,7 @@
             // 
             this.rbMove.AutoSize = true;
             this.rbMove.Location = new System.Drawing.Point(162, 38);
-            this.rbMove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMove.Margin = new System.Windows.Forms.Padding(4);
             this.rbMove.Name = "rbMove";
             this.rbMove.Size = new System.Drawing.Size(104, 34);
             this.rbMove.TabIndex = 7;
@@ -193,7 +193,7 @@
             this.rbCopy.AutoSize = true;
             this.rbCopy.Checked = true;
             this.rbCopy.Location = new System.Drawing.Point(29, 38);
-            this.rbCopy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCopy.Margin = new System.Windows.Forms.Padding(4);
             this.rbCopy.Name = "rbCopy";
             this.rbCopy.Size = new System.Drawing.Size(104, 34);
             this.rbCopy.TabIndex = 8;
@@ -208,9 +208,9 @@
             this.groupBox1.Controls.Add(this.rbCopy);
             this.groupBox1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(227, 468);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(909, 92);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
@@ -219,7 +219,7 @@
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(68, 1015);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(1069, 25);
             this.progressBar.TabIndex = 10;
@@ -241,9 +241,9 @@
             this.groupBox2.Controls.Add(this.rbByLastWriteTime);
             this.groupBox2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(227, 587);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(909, 92);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
@@ -253,7 +253,7 @@
             // 
             this.rbByCreationTime.AutoSize = true;
             this.rbByCreationTime.Location = new System.Drawing.Point(522, 38);
-            this.rbByCreationTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbByCreationTime.Margin = new System.Windows.Forms.Padding(4);
             this.rbByCreationTime.Name = "rbByCreationTime";
             this.rbByCreationTime.Size = new System.Drawing.Size(284, 34);
             this.rbByCreationTime.TabIndex = 9;
@@ -266,7 +266,7 @@
             this.rbIgnoreNoExif.AutoSize = true;
             this.rbIgnoreNoExif.Checked = true;
             this.rbIgnoreNoExif.Location = new System.Drawing.Point(29, 38);
-            this.rbIgnoreNoExif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbIgnoreNoExif.Margin = new System.Windows.Forms.Padding(4);
             this.rbIgnoreNoExif.Name = "rbIgnoreNoExif";
             this.rbIgnoreNoExif.Size = new System.Drawing.Size(104, 34);
             this.rbIgnoreNoExif.TabIndex = 7;
@@ -279,7 +279,7 @@
             // 
             this.rbByLastWriteTime.AutoSize = true;
             this.rbByLastWriteTime.Location = new System.Drawing.Point(162, 38);
-            this.rbByLastWriteTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbByLastWriteTime.Margin = new System.Windows.Forms.Padding(4);
             this.rbByLastWriteTime.Name = "rbByLastWriteTime";
             this.rbByLastWriteTime.Size = new System.Drawing.Size(284, 34);
             this.rbByLastWriteTime.TabIndex = 8;
@@ -293,9 +293,9 @@
             this.groupBox3.Controls.Add(this.rbIgnoreSameNameFile);
             this.groupBox3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(227, 709);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(909, 90);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
@@ -306,7 +306,7 @@
             this.rbAutoRename.AutoSize = true;
             this.rbAutoRename.Checked = true;
             this.rbAutoRename.Location = new System.Drawing.Point(29, 38);
-            this.rbAutoRename.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbAutoRename.Margin = new System.Windows.Forms.Padding(4);
             this.rbAutoRename.Name = "rbAutoRename";
             this.rbAutoRename.Size = new System.Drawing.Size(284, 34);
             this.rbAutoRename.TabIndex = 9;
@@ -320,7 +320,7 @@
             // 
             this.rbIgnoreSameNameFile.AutoSize = true;
             this.rbIgnoreSameNameFile.Location = new System.Drawing.Point(360, 38);
-            this.rbIgnoreSameNameFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbIgnoreSameNameFile.Margin = new System.Windows.Forms.Padding(4);
             this.rbIgnoreSameNameFile.Name = "rbIgnoreSameNameFile";
             this.rbIgnoreSameNameFile.Size = new System.Drawing.Size(104, 34);
             this.rbIgnoreSameNameFile.TabIndex = 7;
@@ -335,7 +335,7 @@
             this.cbxIncludeSubDirectory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxIncludeSubDirectory.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(227, 207);
-            this.cbxIncludeSubDirectory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxIncludeSubDirectory.Margin = new System.Windows.Forms.Padding(4);
             this.cbxIncludeSubDirectory.Name = "cbxIncludeSubDirectory";
             this.cbxIncludeSubDirectory.Size = new System.Drawing.Size(225, 34);
             this.cbxIncludeSubDirectory.TabIndex = 14;
@@ -366,7 +366,7 @@
             // 
             this.nUDIgnoreFileSize.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.nUDIgnoreFileSize.Location = new System.Drawing.Point(542, 821);
-            this.nUDIgnoreFileSize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nUDIgnoreFileSize.Margin = new System.Windows.Forms.Padding(2);
             this.nUDIgnoreFileSize.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -381,7 +381,7 @@
             // 
             this.tbxIgnoreKeyWord.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbxIgnoreKeyWord.Location = new System.Drawing.Point(605, 878);
-            this.tbxIgnoreKeyWord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxIgnoreKeyWord.Margin = new System.Windows.Forms.Padding(2);
             this.tbxIgnoreKeyWord.Name = "tbxIgnoreKeyWord";
             this.tbxIgnoreKeyWord.Size = new System.Drawing.Size(144, 42);
             this.tbxIgnoreKeyWord.TabIndex = 23;
@@ -392,7 +392,7 @@
             this.cbxOrganizByDeviceType.AutoSize = true;
             this.cbxOrganizByDeviceType.Font = new System.Drawing.Font("宋体", 10F);
             this.cbxOrganizByDeviceType.Location = new System.Drawing.Point(592, 45);
-            this.cbxOrganizByDeviceType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxOrganizByDeviceType.Margin = new System.Windows.Forms.Padding(2);
             this.cbxOrganizByDeviceType.Name = "cbxOrganizByDeviceType";
             this.cbxOrganizByDeviceType.Size = new System.Drawing.Size(255, 34);
             this.cbxOrganizByDeviceType.TabIndex = 24;
@@ -407,9 +407,9 @@
             this.groupBox4.Controls.Add(this.lbStyle);
             this.groupBox4.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox4.Location = new System.Drawing.Point(227, 351);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(909, 92);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
@@ -418,7 +418,7 @@
             // btnChangeStyle
             // 
             this.btnChangeStyle.Location = new System.Drawing.Point(322, 38);
-            this.btnChangeStyle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangeStyle.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangeStyle.Name = "btnChangeStyle";
             this.btnChangeStyle.Size = new System.Drawing.Size(151, 47);
             this.btnChangeStyle.TabIndex = 1;
@@ -452,70 +452,70 @@
             this.toolStripSeparator3,
             this.toolStripMenuItem9});
             this.cmsStyle.Name = "contextMenuStrip";
-            this.cmsStyle.Size = new System.Drawing.Size(275, 374);
+            this.cmsStyle.Size = new System.Drawing.Size(284, 358);
             this.cmsStyle.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.CmsStyle_ItemClicked);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem2.Text = "\\2020\\03\\";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem3.Text = "\\2020\\3\\";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem1.Text = "\\2020\\202003\\";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(271, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(280, 6);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem4.Text = "\\202003\\";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(271, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(280, 6);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem5.Text = "\\2020\\03\\01\\";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem6.Text = "\\2020\\0301\\";
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem7.Text = "\\20200301\\";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(271, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(280, 6);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(274, 44);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(283, 42);
             this.toolStripMenuItem9.Text = "\\2020\\";
             // 
             // label4
@@ -580,7 +580,7 @@
             this.Controls.Add(this.tbxSource);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmOrganizer";
             this.Text = "照片整理";

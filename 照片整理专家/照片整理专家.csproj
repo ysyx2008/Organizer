@@ -30,8 +30,8 @@
     <PublisherName>旗鱼</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>42</ApplicationRevision>
-    <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.7.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -58,6 +58,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>照片整理专家.Program</StartupObject>
@@ -86,7 +87,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>照片整理专家密钥.pfx</AssemblyOriginatorKeyFile>
@@ -128,6 +129,12 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPurgeFileName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurgeFileName.Designer.cs">
+      <DependentUpon>frmPurgeFileName.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDeduplicate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,9 +153,13 @@
     <Compile Include="frmOrganizer.Designer.cs">
       <DependentUpon>frmOrganizer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPurgeFileNamePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurgeFileNamePreview.Designer.cs">
+      <DependentUpon>frmPurgeFileNamePreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper.cs" />
-    <Compile Include="OFile.cs" />
-    <Compile Include="Organizer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="NLog.xsd">
@@ -159,14 +170,21 @@
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPurgeFileName.resx">
+      <DependentUpon>frmPurgeFileName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDeduplicate.resx">
       <DependentUpon>frmDeduplicate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFramework.resx">
       <DependentUpon>frmFramework.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrganizer.resx">
       <DependentUpon>frmOrganizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurgeFileNamePreview.resx">
+      <DependentUpon>frmPurgeFileNamePreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,7 +210,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="照片整理专家_TemporaryKey.pfx" />
     <None Include="照片整理专家密钥.pfx" />
   </ItemGroup>
   <ItemGroup>

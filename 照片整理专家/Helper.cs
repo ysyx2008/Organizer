@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace 照片整理专家
 {
@@ -633,6 +634,46 @@ namespace 照片整理专家
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 清理文件名中的无意义字符。
+        /// 如果文件名没有修改，则返回空白字符串。
+        /// </summary>
+        /// <param name="filename">文件名，不能有扩展名</param>
+        /// <param name="removeSuffix">是否移除文件名后缀中类似“(1)、(2)”的编号</param>
+        /// <param name="trimWhitespace">是否移除空白字符</param>
+        /// <returns></returns>
+        public static string PurgeFileName(string filename, bool removeSuffix=true, bool trimWhitespace=true)
+        {
+            string originalFileName = filename;
+            string newFileName = originalFileName;
+
+            // Remove trailing numbers in parentheses from the filename if required
+            if (removeSuffix)
+            {
+                newFileName = Regex.Replace(originalFileName, @"\(\d+\)+$", "");
+            }
+            
+            // Trim whitespace from the start and end of the filename if required
+            if (trimWhitespace)
+            {
+                newFileName = newFileName.Trim();
+            }
+
+            if(newFileName == originalFileName)
+            {
+                return "";
+            }
+            else
+            {
+                return newFileName;
+            }
+        }
+
+        public static string PurgeFileName(FileInfo file, bool removeSuffix = true, bool trimWhitespace = true)
+        {
+            return PurgeFileName(file.Name, removeSuffix, trimWhitespace);
         }
     }
 }
