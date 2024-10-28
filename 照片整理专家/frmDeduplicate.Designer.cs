@@ -56,7 +56,7 @@
             this.cbxIncludeSubDirectory.Checked = true;
             this.cbxIncludeSubDirectory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxIncludeSubDirectory.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(210, 218);
+            this.cbxIncludeSubDirectory.Location = new System.Drawing.Point(210, 276);
             this.cbxIncludeSubDirectory.Margin = new System.Windows.Forms.Padding(4);
             this.cbxIncludeSubDirectory.Name = "cbxIncludeSubDirectory";
             this.cbxIncludeSubDirectory.Size = new System.Drawing.Size(225, 34);
@@ -68,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(48, 173);
+            this.label1.Location = new System.Drawing.Point(48, 231);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 30);
@@ -81,7 +81,7 @@
             this.tbxSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxSource.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbxSource.Location = new System.Drawing.Point(210, 169);
+            this.tbxSource.Location = new System.Drawing.Point(210, 227);
             this.tbxSource.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSource.Name = "tbxSource";
             this.tbxSource.ReadOnly = true;
@@ -94,7 +94,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1020, 163);
+            this.button1.Location = new System.Drawing.Point(1020, 221);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 52);
@@ -111,15 +111,16 @@
             this.label3.Location = new System.Drawing.Point(47, 56);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1069, 93);
+            this.label3.Size = new System.Drawing.Size(1069, 141);
             this.label3.TabIndex = 19;
-            this.label3.Text = "    精确比对源文件夹中的所有文件，所有重复的文件只在源文件夹中保留一份，其他均转移到回收文件夹。\r\n";
+            this.label3.Text = "    精确比对源文件夹中的所有文件，所有重复的文件只在源文件夹中保留一份，其他均转移到回收文件夹。\r\n\r\n    回收文件夹中会保留原有目录结构，以便对比或恢复" +
+    "。\r\n";
             // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(948, 507);
+            this.button3.Location = new System.Drawing.Point(948, 565);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(204, 95);
@@ -132,7 +133,7 @@
             // 
             this.lbCurrentFile.AutoSize = true;
             this.lbCurrentFile.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCurrentFile.Location = new System.Drawing.Point(65, 709);
+            this.lbCurrentFile.Location = new System.Drawing.Point(65, 767);
             this.lbCurrentFile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCurrentFile.Name = "lbCurrentFile";
             this.lbCurrentFile.Size = new System.Drawing.Size(0, 30);
@@ -142,7 +143,7 @@
             // 
             this.lbProgress.AutoSize = true;
             this.lbProgress.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbProgress.Location = new System.Drawing.Point(65, 616);
+            this.lbProgress.Location = new System.Drawing.Point(65, 674);
             this.lbProgress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbProgress.Name = "lbProgress";
             this.lbProgress.Size = new System.Drawing.Size(0, 30);
@@ -152,7 +153,7 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(70, 662);
+            this.progressBar.Location = new System.Drawing.Point(70, 720);
             this.progressBar.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(1082, 29);
@@ -162,7 +163,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(22, 279);
+            this.label2.Location = new System.Drawing.Point(22, 337);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 30);
@@ -175,7 +176,7 @@
             this.tbxDestination.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxDestination.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbxDestination.Location = new System.Drawing.Point(210, 275);
+            this.tbxDestination.Location = new System.Drawing.Point(210, 333);
             this.tbxDestination.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDestination.Name = "tbxDestination";
             this.tbxDestination.ReadOnly = true;
@@ -189,7 +190,7 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(1020, 270);
+            this.button2.Location = new System.Drawing.Point(1020, 328);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 50);
@@ -219,7 +220,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cbxByPixel);
             this.groupBox1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(210, 367);
+            this.groupBox1.Location = new System.Drawing.Point(210, 425);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);

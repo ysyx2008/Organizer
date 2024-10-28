@@ -60,13 +60,13 @@ namespace 照片整理专家
 
                 if (string.IsNullOrEmpty(tbxSource.Text))
                 {
-                    throw new Exception("源文件夹路径不能为空");
+                    throw new Exception("目标文件夹路径不能为空");
                 }
 
 
                 if (System.IO.Directory.Exists(tbxSource.Text) == false)
                 {
-                    throw new Exception("源文件夹不存在。");
+                    throw new Exception("目标文件夹不存在。");
                 }
 
                 onProcess = true;
