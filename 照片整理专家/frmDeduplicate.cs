@@ -224,9 +224,19 @@ namespace 照片整理专家
         {
             try
             {
-                string unionName = Helper.getUnionName(tbxDestination.Text, file);
-                logger.Info("移动" + file.FullName + "到" + unionName);
-                file.MoveTo(unionName);
+                string subDirctory = "";
+                if (file.DirectoryName != tbxSource.Text)
+                {
+                    subDirctory = file.DirectoryName.Substring(tbxSource.Text.Length + 1);
+                }
+                string recyclePath = Path.Combine(tbxDestination.Text, subDirctory);
+                FileInfo target = new FileInfo(Helper.getUnionName(recyclePath, file));
+                if (Directory.Exists(target.DirectoryName) == false)
+                {
+                    Directory.CreateDirectory(target.DirectoryName);
+                }
+                logger.Info("移动" + file.FullName + "到" + target);
+                file.MoveTo(target.FullName);
             }
             catch (UnauthorizedAccessException ex)
             {
