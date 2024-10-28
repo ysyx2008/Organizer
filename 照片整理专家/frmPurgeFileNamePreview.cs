@@ -39,6 +39,7 @@ namespace 照片整理专家
         public void Refresh(DataTable dt)
         {
             dgvPreview.DataSource = dt;
+            dgvPreview.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders);
             dgvPreview.AutoResizeColumns();
             btnAbort.Enabled = true;
         }
