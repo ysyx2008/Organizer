@@ -46,18 +46,24 @@ namespace 照片整理专家
 
         private void btnAbort_Click(object sender, EventArgs e)
         {
-            btnAbort.Enabled = false;
-            foreach (DataGridViewRow row in dgvPreview.Rows)
+            DialogResult result = MessageBox.Show("确定要撤销更名操作吗？", "确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
             {
-                if (row.IsNewRow == false)
+                btnAbort.Enabled = false;
+                foreach (DataGridViewRow row in dgvPreview.Rows)
                 {
-                    string newFileName = Path.Combine(row.Cells["路径"].Value.ToString(), row.Cells["新文件名"].Value.ToString());
-                    string oldFileName = Path.Combine(row.Cells["路径"].Value.ToString(), row.Cells["原文件名"].Value.ToString());
-                    logger.Info(newFileName + " 撤销为 " + oldFileName);
-                    File.Move(newFileName, oldFileName);
-                    row.Cells["新文件名"].Value = "";
-                    row.Cells["执行状态"].Value = "已撤销";
+                    if (row.IsNewRow == false && row.Cells["新文件名"].Value.ToString() != "")
+                    {
+                        string newFileName = Path.Combine(row.Cells["路径"].Value.ToString(), row.Cells["新文件名"].Value.ToString());
+                        string oldFileName = Path.Combine(row.Cells["路径"].Value.ToString(), row.Cells["原文件名"].Value.ToString());
+                        logger.Info(newFileName + " 撤销为 " + oldFileName);
+                        File.Move(newFileName, oldFileName);
+                        row.Cells["新文件名"].Value = "";
+                        row.Cells["执行状态"].Value = "已撤销";
+                    }
                 }
+                btnAbort.Enabled = true;
             }
         }
 
