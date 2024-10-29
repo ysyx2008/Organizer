@@ -225,27 +225,6 @@ namespace 照片整理专家
                 byte[] hashByte1 = hash.ComputeHash(file1); // 根据文件内容计算哈希值
                 byte[] hashByte2 = hash.ComputeHash(file2);
                 return StructuralComparisons.StructuralEqualityComparer.Equals(hashByte1, hashByte2); // 比较两个哈希值是否相等
-=======
-            {
-                return CompareByByteArray(file1, file2);
->>>>>>> 95a604548478448d97eb7d07f69a3d7d80fd459e
-            }
-        }
-
-        /// <summary>
-        /// 使用哈希算法比较文件是否一致
-        /// </summary>
-        /// <param name="file1"></param>
-        /// <param name="file2"></param>
-        /// <returns></returns>
-        public static bool CompareByHash(FileStream file1, FileStream file2)
-        {
-            // 创建一个哈希算法对象
-            using (HashAlgorithm hash = HashAlgorithm.Create())
-            {
-                byte[] hashByte1 = hash.ComputeHash(file1); // 根据文件内容计算哈希值
-                byte[] hashByte2 = hash.ComputeHash(file2);
-                return StructuralComparisons.StructuralEqualityComparer.Equals(hashByte1, hashByte2); // 比较两个哈希值是否相等
             }
         }
         /// <summary>
