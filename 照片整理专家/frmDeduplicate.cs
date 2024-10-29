@@ -146,25 +146,6 @@ namespace 照片整理专家
                             MoveToDestinationDiretory(fileList[i]);
                             totalFileLength += fileList[i].Length;
                         }
-                        //else if (rbByExif.Checked)
-                        //{
-                        //    exifCompareResult result = CompareByExif(fileList[i].FullName, fileList[i + 1].FullName);
-                        //    if (result == exifCompareResult.一致)
-                        //    {
-                        //        logger.Info("{0} 与 {1} 的大小和Exif信息都相同，是重复照片", fileList[i].FullName, fileList[i + 1].FullName);
-                        //        duplicationCount++;
-                        //        MoveToDestinationDiretory(fileList[i]);
-                        //        totalFileLength += fileList[i].Length;
-                        //    }
-                        //    else if (result == exifCompareResult.不一致)
-                        //    {
-                        //        logger.Info("{0} 与 {1} 大小相同但内容不同", fileList[i].FullName, fileList[i + 1].FullName);
-                        //    }
-                        //    else if (result == exifCompareResult.都没有)
-                        //    {
-                        //        logger.Info("{0} 与 {1} 大小相同但都不含Exif信息", fileList[i].FullName, fileList[i + 1].FullName);
-                        //    }
-                        //}
                         else if (cbxByPixel.Checked)
                         {
                             try
