@@ -152,42 +152,50 @@ namespace 照片整理专家
         /// <returns></returns>
         public static bool CompareByByteArray(string file1, string file2, int blockSize = 1024 * 1024)
         {
+            using (var fs1 = new FileStream(file1, FileMode.Open))
+            using (var fs2 = new FileStream(file2, FileMode.Open))
             {
-                using (var fs1 = new FileStream(file1, FileMode.Open))
-                using (var fs2 = new FileStream(file2, FileMode.Open))
-                {
-                    if (fs1.Length != fs2.Length)
-                    {
-                        return false;
-                    }
-
-                    var buffer1 = new byte[blockSize];
-                    var buffer2 = new byte[blockSize];
-                    var bytesRead1 = 0;
-                    var bytesRead2 = 0;
-
-                    while ((bytesRead1 = fs1.Read(buffer1, 0, buffer1.Length)) > 0 &&
-                           (bytesRead2 = fs2.Read(buffer2, 0, buffer2.Length)) > 0)
-                    {
-                        if (bytesRead1 != bytesRead2)
-                        {
-                            return false;
-                        }
-
-                        for (var i = 0; i < bytesRead1; i++)
-                        {
-                            if (buffer1[i] != buffer2[i])
-                            {
-                                return false;
-                            }
-                        }
-                    }
-
-                    return true;
-                }
+                return CompareByByteArray(fs1, fs2, blockSize);
             }
         }
 
+        /// <summary>
+        /// 读入到字节数组中比较(while循环比较字节数组)
+        /// </summary>
+        /// <param name="file1"></param>
+        /// <param name="file2"></param>
+        /// <returns></returns>
+        public static bool CompareByByteArray(FileStream file1, FileStream file2, int blockSize = 1024 * 1024)
+        {
+            if (file1.Length != file2.Length)
+            {
+                return false;
+            }
+
+            var buffer1 = new byte[blockSize];
+            var buffer2 = new byte[blockSize];
+            var bytesRead1 = 0;
+            var bytesRead2 = 0;
+
+            while ((bytesRead1 = file1.Read(buffer1, 0, buffer1.Length)) > 0 &&
+                   (bytesRead2 = file2.Read(buffer2, 0, buffer2.Length)) > 0)
+            {
+                if (bytesRead1 != bytesRead2)
+                {
+                    return false;
+                }
+
+                for (var i = 0; i < bytesRead1; i++)
+                {
+                    if (buffer1[i] != buffer2[i])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
 
         /// <summary>
         /// 使用哈希算法比较文件是否一致
@@ -197,15 +205,26 @@ namespace 照片整理专家
         /// <returns></returns>
         public static bool CompareByHash(string filePath1, string filePath2)
         {
+            using (FileStream file1 = new FileStream(filePath1, FileMode.Open), file2 = new FileStream(filePath2, FileMode.Open))
+            {
+                return CompareByByteArray(file1, file2);
+            }
+        }
+
+        /// <summary>
+        /// 使用哈希算法比较文件是否一致
+        /// </summary>
+        /// <param name="file1"></param>
+        /// <param name="file2"></param>
+        /// <returns></returns>
+        public static bool CompareByHash(FileStream file1, FileStream file2)
+        {
             // 创建一个哈希算法对象
             using (HashAlgorithm hash = HashAlgorithm.Create())
             {
-                using (FileStream file1 = new FileStream(filePath1, FileMode.Open), file2 = new FileStream(filePath2, FileMode.Open))
-                {
-                    byte[] hashByte1 = hash.ComputeHash(file1); // 根据文件内容计算哈希值
-                    byte[] hashByte2 = hash.ComputeHash(file2);
-                    return StructuralComparisons.StructuralEqualityComparer.Equals(hashByte1, hashByte2); // 比较两个哈希值是否相等
-                }
+                byte[] hashByte1 = hash.ComputeHash(file1); // 根据文件内容计算哈希值
+                byte[] hashByte2 = hash.ComputeHash(file2);
+                return StructuralComparisons.StructuralEqualityComparer.Equals(hashByte1, hashByte2); // 比较两个哈希值是否相等
             }
         }
 
@@ -219,12 +238,23 @@ namespace 照片整理专家
         {
             using (FileStream file = new FileStream(filePath, FileMode.Open))
             {
-                using (MD5 md5 = new MD5CryptoServiceProvider())
-                {
-                    byte[] retVal = md5.ComputeHash(file);
-                    ASCIIEncoding enc = new ASCIIEncoding();
-                    return enc.GetString(retVal);
-                }
+                return GetMD5HashFromFile(file);
+            }
+        }
+
+        /// <summary>
+        /// 计算文件的MD5值
+        /// 待验证
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public static string GetMD5HashFromFile(FileStream file)
+        {
+            using (MD5 md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] retVal = md5.ComputeHash(file);
+                ASCIIEncoding enc = new ASCIIEncoding();
+                return enc.GetString(retVal);
             }
         }
 
@@ -288,7 +318,7 @@ namespace 照片整理专家
         /// <param name="isIncludeSubDirectories">是否包含子目录</param>
         /// <param name="minFileSize">最小文件大小。单位为字节</param>
         /// <param name="ignoreKeyWord">忽略关键字</param>
-        public static List<FileInfo> LoadFiles(string root, bool isIncludeSubDirectories = false,int minFileSize = 0, string ignoreKeyWord = "")
+        public static List<FileInfo> LoadFiles(string root, bool isIncludeSubDirectories = false, int minFileSize = 0, string ignoreKeyWord = "")
         {
             List<FileInfo> list = new List<FileInfo>();
 
@@ -644,7 +674,7 @@ namespace 照片整理专家
         /// <param name="removeSuffix">是否移除文件名后缀中类似“(1)、(2)”的编号</param>
         /// <param name="trimWhitespace">是否移除空白字符</param>
         /// <returns></returns>
-        public static string PurgeFileName(string filename, bool removeSuffix=true, bool trimWhitespace=true)
+        public static string PurgeFileName(string filename, bool removeSuffix = true, bool trimWhitespace = true)
         {
             string originalFileName = filename;
             string newFileName = originalFileName;
@@ -654,14 +684,14 @@ namespace 照片整理专家
             {
                 newFileName = Regex.Replace(originalFileName, @"\(\d+\)+$", "");
             }
-            
+
             // Trim whitespace from the start and end of the filename if required
             if (trimWhitespace)
             {
                 newFileName = newFileName.Trim();
             }
 
-            if(newFileName == originalFileName)
+            if (newFileName == originalFileName)
             {
                 return "";
             }
