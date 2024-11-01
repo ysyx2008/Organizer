@@ -21,6 +21,27 @@ namespace 照片整理专家
     }
 
     /// <summary>
+    /// 进度信息类，用于在进度更新事件中传递信息
+    /// </summary>
+    public class ProgressInfo
+    {
+        /// <summary>
+        /// 当前处理的文件索引
+        /// </summary>
+        public int CurrentIndex { get; set; }
+
+        /// <summary>
+        /// 当前处理的文件名
+        /// </summary>
+        public string CurrentFileName { get; set; }
+
+        /// <summary>
+        /// 已处理的重复文件总大小（格式化后的字符串）
+        /// </summary>
+        public string TotalDuplicateSizeFormatted { get; set; }
+    }
+
+    /// <summary>
     /// 文件重复查找器类，用于检测目标文件夹中的重复文件并处理
     /// </summary>
     public class FileDuplicateFinder
@@ -33,10 +54,12 @@ namespace 照片整理专家
         private readonly Logger logger;                     // NLog 日志记录器
         private CancellationTokenSource cancellationTokenSource; // 任务取消令牌源
 
+        private long totalDuplicateSize = 0;                // 已处理的重复文件总大小（字节）
+
         /// <summary>
-        /// 进度更新事件，参数为当前处理的文件索引和文件名
+        /// 进度更新事件，传递 ProgressInfo 对象
         /// </summary>
-        public event Action<int, string> ProgressChanged;
+        public event Action<ProgressInfo> ProgressChanged;
 
         /// <summary>
         /// 构造函数，初始化 FileDuplicateFinder 类的新实例
@@ -114,7 +137,13 @@ namespace 照片整理专家
                     sizeGroups[size].Add(file);
 
                     // 触发进度更新事件
-                    ProgressChanged?.Invoke(i + 1, file);
+                    ProgressChanged?.Invoke(new ProgressInfo
+                    {
+                        CurrentIndex = i + 1,
+                        CurrentFileName = file,
+                        TotalDuplicateSizeFormatted = FormatSize(totalDuplicateSize)
+                    });
+
                     logger.Debug($"文件 {file} 已分入大小为 {size} 字节的组。");
                 }
 
@@ -157,7 +186,13 @@ namespace 照片整理专家
 
                         processedFiles++;
                         // 触发进度更新事件
-                        ProgressChanged?.Invoke(processedFiles, file);
+                        ProgressChanged?.Invoke(new ProgressInfo
+                        {
+                            CurrentIndex = processedFiles,
+                            CurrentFileName = file,
+                            TotalDuplicateSizeFormatted = FormatSize(totalDuplicateSize)
+                        });
+
                         logger.Debug($"正在处理文件 {file} ({processedFiles}/{totalFiles})");
                     }
 
@@ -190,10 +225,21 @@ namespace 照片整理专家
                                         return;
                                     }
 
+                                    long fileSize = new FileInfo(duplicateFile).Length;
+                                    totalDuplicateSize += fileSize;
+
                                     var destinationPath = GetUniqueDestinationPath(duplicateFile);
                                     Directory.CreateDirectory(Path.GetDirectoryName(destinationPath)); // 确保目标文件夹存在
                                     File.Move(duplicateFile, destinationPath);
                                     logger.Info($"移动重复文件 {duplicateFile} 到 {destinationPath}");
+
+                                    // 触发进度更新事件，更新总重复文件大小
+                                    ProgressChanged?.Invoke(new ProgressInfo
+                                    {
+                                        CurrentIndex = processedFiles,
+                                        CurrentFileName = duplicateFile,
+                                        TotalDuplicateSizeFormatted = FormatSize(totalDuplicateSize)
+                                    });
                                 }
                             }
                         }
@@ -461,6 +507,30 @@ namespace 照片整理专家
                 return path + Path.DirectorySeparatorChar;
             }
             return path;
+        }
+
+        /// <summary>
+        /// 将字节大小格式化为人类友好的字符串
+        /// </summary>
+        /// <param name="bytes">字节大小</param>
+        /// <returns>格式化后的字符串，例如 "1.23 GB"</returns>
+        private static string FormatSize(long bytes)
+        {
+            const long KB = 1024;
+            const long MB = KB * 1024;
+            const long GB = MB * 1024;
+            const long TB = GB * 1024;
+
+            if (bytes >= TB)
+                return $"{(double)bytes / TB:0.##} TB";
+            else if (bytes >= GB)
+                return $"{(double)bytes / GB:0.##} GB";
+            else if (bytes >= MB)
+                return $"{(double)bytes / MB:0.##} MB";
+            else if (bytes >= KB)
+                return $"{(double)bytes / KB:0.##} KB";
+            else
+                return $"{bytes} B";
         }
     }
 }
