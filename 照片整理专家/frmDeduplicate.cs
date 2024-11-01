@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace 照片整理专家
@@ -86,17 +87,15 @@ namespace 照片整理专家
 
                 if (System.IO.Directory.GetDirectories(tbxDestination.Text).Length > 0 || System.IO.Directory.GetFiles(tbxDestination.Text).Length > 0)
                 {
-                    if (MessageBox.Show("目标文件夹不是空的，确定要使用“" + tbxDestination.Text + "”这个目录吗？", "注意", MessageBoxButtons.YesNo) == DialogResult.No)
-                    {
-                        throw new Exception("整理过程已经中止。");
-                    }
+                    throw new Exception(tbxDestination.Text + "不是空的，无法进行去重。");
                 }
-                onProcess = true;
 
+                onProcess = true;
                 fileList.Clear();  // 初始化文件列表
 
                 try
                 {
+                    lbProgress.Text = "正在加载待去重的文件清单";
                     fileList = Helper.LoadFiles(tbxSource.Text, cbxIncludeSubDirectory.Checked);
                 }
                 catch (UnauthorizedAccessException ex)
@@ -125,7 +124,30 @@ namespace 照片整理专家
 
                 lbProgress.Text = "0/" + (total - 2 >= 0 ? total - 2 : 0).ToString() + " 找到了 " + duplicationCount.ToString() + " 个重复文件，节约 " + Helper.HumanReadableFilesize((double)totalFileLength) + " 空间";
 
-                for (int i = 0; i < total - 1 ; i++)
+                /// TODO:
+                /// 改为根据文件大小分组
+                /// 仅有1个的不处理
+                /// 超过1个的组内比较MD5
+                /// 按条件保留文件，比如修改日期最靠前的，或是拍摄日期最靠前的
+                /// 只对图片文件进行像素级比较，其他文件跳过
+
+                // 第一步：按文件大小分组
+                var sizeGroups = fileList.GroupBy(f => f.Length);
+                foreach (var sizeGroup in sizeGroups)
+                {
+                    var filesOfSameSize = sizeGroup.ToList();
+
+                    if (filesOfSameSize.Count == 1)
+                    {
+                        // 无重复文件
+                        continue;
+                    }
+
+                }
+
+                string file1Hash = "";
+                string file2Hash = "";
+                for (int i = 0; i < total - 1; i++)
                 {
                     if (abortProcess)
                     {
@@ -139,44 +161,73 @@ namespace 照片整理专家
 
                     if (fileList[i].Length == fileList[i + 1].Length)
                     {
-                        if (Helper.CompareByByteArray(fileList[i].FullName, fileList[i + 1].FullName))
+                        FileInfo moveTarget = null;
+
+                        using (var fs1 = new FileStream(fileList[i].FullName, FileMode.Open))
+                        using (var fs2 = new FileStream(fileList[i + 1].FullName, FileMode.Open))
                         {
-                            logger.Info("{0} 与 {1} 是重复文件", fileList[i].FullName, fileList[i + 1].FullName);
-                            duplicationCount++;
-                            MoveToDestinationDiretory(fileList[i]);
-                            totalFileLength += fileList[i].Length;
-                        }
-                        else if (cbxByPixel.Checked)
-                        {
-                            try
+                            if (i == 0)
                             {
-                                if (Helper.CompareByPixel(fileList[i], fileList[i + 1]))
+                                file1Hash = Helper.GetMD5HashFromFile(fs1);
+                            }
+                            else
+                            {
+                                file1Hash = file2Hash;
+                            }
+                            file2Hash = Helper.GetMD5HashFromFile(fs2);
+                            logger.Info("{0} 文件1 MD5：{1}", fileList[i].FullName, file1Hash);
+                            logger.Info("{0} 文件2 MD5：{1}", fileList[i + 1].FullName, file2Hash);
+
+                            if (file1Hash == file2Hash)
+                            {
+                                logger.Info("{0} 与 {1} MD5相同，是重复文件", fileList[i].FullName, fileList[i + 1].FullName);
+                                duplicationCount++;
+                                moveTarget = fileList[i];
+                            }
+                            else if (cbxByPixel.Checked)
+                            {
+                                logger.Info("{0} 与 {1} MD5不同，进行像素级比较", fileList[i].FullName, fileList[i + 1].FullName);
+                                try
                                 {
-                                    logger.Info("{0} 与 {1} 的像素信息完全相同，是重复照片", fileList[i].FullName, fileList[i + 1].FullName);
-                                    duplicationCount++;
-                                    if (Helper.haveExif(fileList[i + 1]) == true)
+                                    if (Helper.CompareByPixel(fileList[i], fileList[i + 1]))
                                     {
-                                        MoveToDestinationDiretory(fileList[i]);
+                                        logger.Info("{0} 与 {1} 的像素信息完全相同，是重复照片", fileList[i].FullName, fileList[i + 1].FullName);
+                                        duplicationCount++;
+                                        if (Helper.isHaveCaptureTime(fileList[i + 1]) == true)
+                                        {
+                                            moveTarget = fileList[i];
+                                        }
+                                        else
+                                        {
+                                            moveTarget = fileList[i + 1];
+                                        }
                                     }
                                     else
                                     {
-                                        MoveToDestinationDiretory(fileList[i + 1]);
+                                        logger.Info("{0} 与 {1} 的像素对比失败", fileList[i].FullName, fileList[i + 1].FullName);
                                     }
-                                    totalFileLength += fileList[i].Length;
                                 }
-                                else
+                                catch (Exception ex)
                                 {
-                                    logger.Info("{0} 与 {1} 的像素对比失败", fileList[i].FullName, fileList[i + 1].FullName);
+                                    logger.Error("{0} 与 {1} 的像素对比异常，原因：{2}", fileList[i].FullName, fileList[i + 1].FullName, ex.Message);
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                logger.Error("{0} 与 {1} 的像素对比异常，原因：{2}", fileList[i].FullName, fileList[i + 1].FullName, ex.Message);
                             }
                         }
+
+                        if (moveTarget != null)
+                        {
+                            logger.Info("移动到回收文件夹：{0}" + moveTarget.FullName);
+                            MoveToDestinationDiretory(moveTarget);
+                            totalFileLength += moveTarget.Length;
+                        }
+                        else
+                        {
+                            logger.Info("moveTarget未被赋值！");
+                        }
+
                     }
-                    
-                    lbProgress.Text = i.ToString()+"/"+(total-2).ToString()+" 找到了 "+duplicationCount.ToString()+" 个重复文件，节约 " + Helper.HumanReadableFilesize((double)totalFileLength) + " 空间";
+
+                    lbProgress.Text = i.ToString() + "/" + (total - 2).ToString() + " 找到了 " + duplicationCount.ToString() + " 个重复文件，节约 " + Helper.HumanReadableFilesize((double)totalFileLength) + " 空间";
                     Application.DoEvents();
                 }
                 #endregion
@@ -185,7 +236,7 @@ namespace 照片整理专家
                 logger.Info("完成去重，找到了" + duplicationCount.ToString() + "个重复文件！");
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 logger.Error(ex.Message);
@@ -247,7 +298,7 @@ namespace 照片整理专家
                 e.Effect = DragDropEffects.Copy;
             }
         }
-        
+
         private void tbxSource_DragDrop(object sender, DragEventArgs e)
         {
             string path = ((Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
@@ -257,7 +308,7 @@ namespace 照片整理专家
                 MessageBox.Show(path + " 不是有效的文件夹！");
                 return;
             }
-            
+
             tbxSource.Text = path;
         }
 

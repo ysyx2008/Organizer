@@ -385,7 +385,7 @@ namespace 照片整理专家
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>
-        public static bool haveExif(FileInfo file)
+        public static bool isHaveCaptureTime(FileInfo file)
         {
             try
             {
@@ -651,7 +651,7 @@ namespace 照片整理专家
                     return false;
                 }
             }
-
+            
             // 检查是否是Windows保留的文件名
             string[] reservedNames = new string[] { "CON", "PRN", "AUX", "NUL", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9" };
             foreach (string reserved in reservedNames)
